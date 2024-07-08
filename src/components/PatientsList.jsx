@@ -13,7 +13,7 @@ function generate(element) {
   );
 }
 
-const PatientsList = () => {
+const PatientsList = ({ handleClick }) => {
   return (
     <Card
       elevation={0}
@@ -21,11 +21,10 @@ const PatientsList = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        width: '330px',
+        width: '100%',
         height: '800px',
         padding: '18px 6px 18px 18px',
         borderRadius: '16px',
-        mt: 5,
       }}
     >
       <Box 
@@ -64,6 +63,7 @@ const PatientsList = () => {
           >
             {generate(
               <ListItem
+                onClick={handleClick}
                 sx={{ padding: '0px !important', margin: '16px 0' }}
                 secondaryAction={
                   <IconButton edge="end" aria-label="menu">

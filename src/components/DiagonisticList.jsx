@@ -10,7 +10,7 @@ const DiagonisticList = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        width: '640px',
+        width: '100%',
         minHeight: '349px',
         padding: '18px',
         borderRadius: '16px',
@@ -25,7 +25,7 @@ const DiagonisticList = () => {
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          Diagnosis History
+          Diagnosis List
         </Typography>
 
         <Table />

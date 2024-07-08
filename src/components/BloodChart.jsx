@@ -29,6 +29,7 @@ const BloodChart = () => {
   };
 
   const options = {
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       yAxes: [
@@ -41,12 +42,14 @@ const BloodChart = () => {
       ],
     },
   }
+
   return (
-    <div style={{ width: '100%', height: '90%' }}>
+    <Box sx={{ width: { xs: '100%', md: '70%', xl: '100%' }, height: { xs: '300px', md: '90%' } }}>
       <Box
         sx={{
           // width: '100%',
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'space-between',
           // gap: '24px',
         }}
@@ -58,7 +61,7 @@ const BloodChart = () => {
           sx={{
             // width: '100%',
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: { xs: 'flex-start', md: 'flex-end' },
             alignItems: 'center',
             gap: '8px',
           }}
@@ -69,8 +72,9 @@ const BloodChart = () => {
           <ExpandMore alt="icon" />
         </Box>
       </Box>
-      <Chart type="line" data={data} options={options} />
-    </div>
+      <Chart type="line" data={data} options={options}
+      />
+    </Box>
   );
 };
 

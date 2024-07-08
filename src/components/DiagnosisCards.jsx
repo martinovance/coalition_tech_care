@@ -38,7 +38,8 @@ const DiagnosisCards = () => {
   return (
     <Box sx={{
       display: 'flex',
-      justifyContent: 'space-between',
+      flexWrap: { xs: 'wrap', md: 'nowrap' },
+      justifyContent: { xs: 'center', md: 'space-between' },
       alignItems: 'center',
       width: '100%',
       gap: '16px',
@@ -50,7 +51,7 @@ const DiagnosisCards = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyCotent: 'flex-start',
-            width: '228px',
+            width: { xs: '100%', sm: '228px' },
             height: '215px',
             padding: '12px',
             gap: '12px',

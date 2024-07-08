@@ -44,7 +44,7 @@ const PatientInfo = () => {
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        width: '330px',
+        width: '100%',
         minHeight: '600px',
         padding: '18px',
         borderRadius: '16px',

@@ -26,12 +26,17 @@ const Header = () => {
         borderRadius: '70px'
       }}
     >
-      <Box>
-        <TestLogo alt="logo" style={{ backgroundColor: 'transparent' }} />
+      <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+        <TestLogo alt="logo" />
+      </Box>
+      <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+        <TestLogo alt="logo" 
+          style={{  width: '120px' }}
+        />
       </Box>
 
       <Box sx={{
-        display: 'flex',
+        display:  { xs: 'none', lg: 'flex' },
         justifyContent: 'center',
         alignItems: 'center',
         gap: '32px',
@@ -79,10 +84,15 @@ const Header = () => {
           gap: '8px'
         }}
       >
-        <Avatar src={FemaleDoctor} />
+        <Avatar src={FemaleDoctor} 
+          sx={{ 
+            width: { xs: 26, sm: 36 }, 
+            height: { xs: 26, sm: 36 }  
+          }} 
+        />
         <Box
           sx={{
-            display: 'flex',
+            display:  { xs: 'none', sm: 'flex' },
             flexDirection: 'column',
             alignItems: 'flex-start',
             // gap: '4px',
@@ -97,7 +107,7 @@ const Header = () => {
         </Box>
         <Divider orientation="vertical" />
         <Settings alt="settings" />
-        <IconButton>
+        <IconButton sx={{ display: {xs: 'none', sm: 'flex'}}}>
           <MoreVertIcon />
         </IconButton>
       </Box>

@@ -20,7 +20,7 @@ const LabResult = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        width: '330px',
+        width: '100%',
         height: '296px',
         padding: '18px',
         borderRadius: '16px',

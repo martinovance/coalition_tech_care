@@ -14,12 +14,12 @@ const DiagnosisHistory = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        width: '640px',
+        width: '100%',
         minHeight: '600px',
         padding: '18px',
         borderRadius: '16px',
-    }}
-  >
+      }}
+    >
     <Box
         sx={{
           width: '100%',
@@ -36,14 +36,15 @@ const DiagnosisHistory = () => {
           sx={{
             backgroundColor: '#F4F0FE',
             display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
             alignItems: 'flex-start',
             width: '100%',
-            height: '300px',
+            height: { xs: '100%', md: '300px' },
             padding: '12px',
             borderRadius: '16px',
             boxSizing: 'border-box',
-            gap: '16px'
+            gap: { xs: '50px', md: '16px' }
           }}
         >
           <BloodChart />
@@ -51,7 +52,7 @@ const DiagnosisHistory = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              width: '45%',
+              width: { xs: '100%', md: '45%' },
               gap: '8px'
             }}
           >
