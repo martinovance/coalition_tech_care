@@ -4,16 +4,9 @@ import { ReactComponent as MoreHorizonIcon } from '../assets/MoreHorizonIcon.svg
 import { ReactComponent as SearchIcon } from '../assets/SearchIcon.svg'
 
 import React from 'react'
+import Loader from '../shared/Loader';
 
-function generate(element) {
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
-const PatientsList = ({ handleClick }) => {
+const PatientsList = ({ data, isLoading, activePatient, handlePatientClick }) => {
   return (
     <Card
       elevation={0}
@@ -61,10 +54,18 @@ const PatientsList = ({ handleClick }) => {
               },
             }}
           >
-            {generate(
+            {isLoading ? (
+              <Loader />
+            ) : ( data?.map((patient, index) => (
               <ListItem
-                onClick={handleClick}
-                sx={{ padding: '0px !important', margin: '16px 0' }}
+                key={index}
+                onClick={() => handlePatientClick(patient)}
+                sx={{ 
+                  padding: '0px !important', 
+                  margin: '16px 0',
+                  backgroundColor: patient.name === (activePatient && activePatient.name) ? '#01F0D0' : null,
+                  cursor: 'pointer'
+                }}
                 secondaryAction={
                   <IconButton edge="end" aria-label="menu">
                     <MoreHorizonIcon />
@@ -72,15 +73,17 @@ const PatientsList = ({ handleClick }) => {
                 }
               >
                 <ListItemAvatar>
-                  <Avatar>
-                    {/* <FolderIcon /> */}
-                  </Avatar>
+                  <Avatar src={patient?.profile_picture} alt="image" />
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Emilly Williams"
-                  secondary="Female 18"
+                  primary={patient?.name}
+                  secondary={`${patient?.gender}  ${patient?.age} `}
                 />
               </ListItem>
+            )))}
+
+            {!data && (
+              <Typography>No Patient</Typography>
             )}
           </List>
         </Box>

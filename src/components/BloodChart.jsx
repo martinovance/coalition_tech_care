@@ -4,14 +4,17 @@ import { Box, Typography } from '@mui/material';
 
 import { ReactComponent as ExpandMore } from '../assets/ExpandMore.svg'
 
-const BloodChart = () => {
-  const labels = ['Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024', 'Mar 2024'];
+const BloodChart = ({ activePatient }) => {
+  const patient = activePatient?.diagnosis_history
+  console.log(patient?.[0]?.blood_pressure?.systolic?.value)
+
+  const labels = patient ? patient?.map(item => `${item.month} ${item.year}`) : ['1', '2', '3', '4', '5', '6'];
   const data = {
     labels,
     datasets: [
       {
         label: 'Systolic',
-        data: [120, 118, 160, 117, 150, 159],
+        data: patient ? patient?.map(item => item?.blood_pressure?.systolic?.value) : [0, 0, 0, 0, 0, 0],
         borderColor: '#E66FD2',
         backgroundColor: '#E66FD2',
         pointRadius: 5,
@@ -19,7 +22,7 @@ const BloodChart = () => {
       },
       {
         label: 'Diastolic',
-        data: [110, 65, 109, 90, 70, 80],
+        data: patient ? patient?.map(item => item?.blood_pressure?.diastolic?.value) : [0, 0, 0, 0, 0, 0],
         borderColor: '#8C6FE6',
         backgroundColor: '#8C6FE6',
         pointRadius: 5,

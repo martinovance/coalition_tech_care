@@ -6,31 +6,14 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import PatientsList from './PatientsList';
 
-const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
-
-function generate(element) {
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
-export default function Dropdown() {
+export default function Dropdown({ data, handlePatientClick, activePatient }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-  const handleClick = () => {
-    console.info(`You clicked ${generate[selectedIndex]}`);
-  };
-
-  const handleMenuClick = (event, index) => {
-    setSelectedIndex(index);
+  const handleMenuClick = (e) => {
     setOpen(false);
   };
 
@@ -52,15 +35,21 @@ export default function Dropdown() {
         disableElevation
         variant="contained"
         ref={anchorRef}
-        color="primary"
-        sx={{ width: { xs: '100%', sm: '200px' }, color: 'black' }}
+        sx={{
+          width: { xs: '100%', sm: '300px' },
+          '& .MuiButton-root': {
+            color: '#000000',
+            backgroundColor: '#fff',
+            '&:hover': {
+              cursor: 'pointer',
+            },
+          },
+        }}
       >
-        <Button sx={{ width: { xs: '80%' }}} onClick={handleClick}>Patients List</Button>
+        <Button sx={{ width: { xs: '80%' }}}>{activePatient?.name || 'Select Patient'}</Button>
         <Button
-                sx={{ width: { xs: '20%' }}}
+          sx={{ width: { xs: '20%' }}}
           size="small"
-          aria-controls={open ? 'split-button-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
           onClick={handleToggle}
         >
           <ArrowDropDownIcon />
@@ -79,6 +68,7 @@ export default function Dropdown() {
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
+            fullWidth
             style={{
               transformOrigin:
                 placement === 'bottom' ? 'center top' : 'center bottom',
@@ -86,18 +76,12 @@ export default function Dropdown() {
           >
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem>
-                  {/* {options.map((option, index) => (
-                    <MenuItem
-                      key={option}
-                      disabled={index === 2}
-                      selected={index === selectedIndex}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                    >
-                      {option}
-                    </MenuItem>
-                  ))} */}
-                  <PatientsList handleClick={handleMenuClick} generate={generate} />
+                <MenuList onClick={handleMenuClick} id="split-button-menu" autoFocusItem>
+                  <PatientsList 
+                    data={data} 
+                    activePatient={activePatient}
+                    handlePatientClick={handlePatientClick}
+                  />
                 </MenuList>
               </ClickAwayListener>
             </Paper>

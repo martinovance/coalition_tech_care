@@ -14,12 +14,21 @@ import { getPatients } from '../services/dashboardServices'
 import Dropdown from '../components/Dropdown'
 
 const Patients = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['patients'],
     queryFn: getPatients,
   });
+  const [activePatient, setActivePatient] = React.useState(null);
 
-  console.log(data);
+  React.useEffect(() => {
+    if (data && data?.length >= 3) {
+      setActivePatient(data[3])
+    }
+  }, [data])
+
+  const handlePatientClick = (patient) => {
+    setActivePatient(patient)
+  }
 
   return (
     <Box sx={{
@@ -39,7 +48,11 @@ const Patients = () => {
             mt: 3,
           }}
       >
-        <Dropdown />
+        <Dropdown 
+          data={data} 
+          activePatient={activePatient}
+          handlePatientClick={handlePatientClick}
+        />
       </Box>
 
       <Grid
@@ -50,7 +63,7 @@ const Patients = () => {
           justifyContent: 'space-between',
           alignItems: 'flex-start',
           pr: '16px',
-          gap: '16px',
+          // gap: '16px',
         }}
       >
         <Grid
@@ -63,7 +76,12 @@ const Patients = () => {
             width: '100%',
           }}
         >
-          <PatientsList />
+          <PatientsList 
+            data={data} 
+            isLoading={isLoading}
+            activePatient={activePatient}
+            handlePatientClick={handlePatientClick}
+          />
         </Grid>
           
         <Grid
@@ -79,8 +97,14 @@ const Patients = () => {
             mt: 5,
           }}
         >
-          <DiagnosisHistory />
-          <DiagonisticList />
+          <DiagnosisHistory 
+            activePatient={activePatient}
+            isLoading={isLoading}
+          />
+          <DiagonisticList 
+            activePatient={activePatient}
+            isLoading={isLoading}
+          />
         </Grid>
         
         <Grid
@@ -96,8 +120,14 @@ const Patients = () => {
             width: '100%',
           }}
         >
-          <PatientInfo />
-          <LabResult />
+          <PatientInfo 
+            activePatient={activePatient}
+            isLoading={isLoading}
+          />
+          <LabResult 
+            activePatient={activePatient}
+            isLoading={isLoading}
+          />
         </Grid>
       </Grid>
     </Box>
