@@ -1,9 +1,8 @@
 import { Box, Card, Typography } from '@mui/material'
 
 import Table from './Table';
-import Loader from '../shared/Loader';
 
-const DiagonisticList = ({ activePatient, isLoading }) => {
+const DiagonisticList = ({ activePatient }) => {
   return (
     <Card
         elevation={0}
@@ -17,9 +16,6 @@ const DiagonisticList = ({ activePatient, isLoading }) => {
           borderRadius: '16px',
       }}
     >
-      {isLoading ? (
-        <Loader />
-      ) : (
         <Box
           sx={{
             width: '100%',
@@ -34,7 +30,6 @@ const DiagonisticList = ({ activePatient, isLoading }) => {
 
           <Table activePatient={activePatient} />
         </Box>
-      )}
     </Card>
   )
 }

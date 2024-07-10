@@ -99,11 +99,9 @@ const Patients = () => {
         >
           <DiagnosisHistory 
             activePatient={activePatient}
-            isLoading={isLoading}
           />
           <DiagonisticList 
             activePatient={activePatient}
-            isLoading={isLoading}
           />
         </Grid>
         
@@ -122,11 +120,9 @@ const Patients = () => {
         >
           <PatientInfo 
             activePatient={activePatient}
-            isLoading={isLoading}
           />
           <LabResult 
             activePatient={activePatient}
-            isLoading={isLoading}
           />
         </Grid>
       </Grid>

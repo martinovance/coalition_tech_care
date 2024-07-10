@@ -6,6 +6,8 @@ import { ReactComponent as SearchIcon } from '../assets/SearchIcon.svg'
 import Loader from '../shared/Loader';
 
 const PatientsList = ({ data, isLoading, activePatient, handlePatientClick }) => {
+  // const active = activePatient && activePatient?.map(item => item?.name)
+
   return (
     <Card
       elevation={0}
@@ -51,6 +53,7 @@ const PatientsList = ({ data, isLoading, activePatient, handlePatientClick }) =>
                 backgroundColor: '#ccc', 
                 borderRadius: '6px',
               },
+              ml: '-16px',
             }}
           >
             {isLoading ? (
@@ -59,11 +62,10 @@ const PatientsList = ({ data, isLoading, activePatient, handlePatientClick }) =>
               <ListItem
                 key={index}
                 onClick={() => handlePatientClick(patient)}
-                sx={{ 
-                  padding: '0px !important', 
-                  margin: '16px 0',
-                  backgroundColor: patient.name === (activePatient && activePatient.name) ? '#01F0D0' : null,
-                  cursor: 'pointer'
+                sx={{
+                  pl: '14px', 
+                  backgroundColor: patient.name === (activePatient && activePatient.name) ? '#D8FCF7' : 'transparent',
+                  cursor: 'pointer',
                 }}
                 secondaryAction={
                   <IconButton edge="end" aria-label="menu">

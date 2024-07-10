@@ -2,7 +2,7 @@ import { CircularProgress, Box } from '@mui/material';
 
 const Loader = () => {
   return (
-    <Box height="70%" >
+    <Box sx={{ height: '50vh' }} >
         <CircularProgress
           size={50}
           sx={{

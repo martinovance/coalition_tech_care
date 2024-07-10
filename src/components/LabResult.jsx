@@ -2,9 +2,7 @@ import { Box, Card, IconButton, List, ListItem, ListItemText, Typography } from 
 
 import { ReactComponent as Download } from '../assets/Download.svg'
 
-import Loader from '../shared/Loader'
-
-const LabResult = ({ activePatient, isLoading }) => {
+const LabResult = ({ activePatient }) => {
   const patient = activePatient?.lab_results
 
   return (
@@ -44,9 +42,7 @@ const LabResult = ({ activePatient, isLoading }) => {
                 },
               }}
             >
-              {isLoading ? (
-                <Loader />
-              ) : ( patient?.map((result, index) => (
+              {patient?.map((result, index) => (
                 <ListItem
                   secondaryAction={
                     <IconButton edge="end" aria-label="menu">
@@ -58,8 +54,7 @@ const LabResult = ({ activePatient, isLoading }) => {
                     primary={result}
                   />
                 </ListItem>
-              ))
-            )}
+              ))}
             </List>
           </Box>
         </Box>

@@ -5,9 +5,8 @@ import { ReactComponent as ArrowDown } from '../assets/ArrowDown.svg'
 
 import BloodChart from './BloodChart'
 import DiagnosisCards from './DiagnosisCards'
-import Loader from '../shared/Loader'
 
-const DiagnosisHistory = ({ activePatient, isLoading }) => {
+const DiagnosisHistory = ({ activePatient }) => {
   const patient = activePatient?.diagnosis_history?.[0];
   
   return (
@@ -23,9 +22,6 @@ const DiagnosisHistory = ({ activePatient, isLoading }) => {
         borderRadius: '16px',
       }}
     >
-      {isLoading ?  (
-            <Loader />
-        ) : (
         <Box
             sx={{
               width: '100%',
@@ -37,8 +33,6 @@ const DiagnosisHistory = ({ activePatient, isLoading }) => {
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
               Diagnosis History
             </Typography>
-
-        
             <Box
               sx={{
                 backgroundColor: '#F4F0FE',
@@ -113,7 +107,6 @@ const DiagnosisHistory = ({ activePatient, isLoading }) => {
 
           <DiagnosisCards patient={patient} />
         </Box>
-      )}
     </Card>
   )
 }

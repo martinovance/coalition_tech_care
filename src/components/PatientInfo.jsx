@@ -5,9 +5,7 @@ import FemaleIcon from '../assets/FemaleIcon.svg'
 import PhoneIcon from '../assets/PhoneIcon.svg'
 import InsuranceIcon from '../assets/InsuranceIcon.svg'
 
-import Loader from '../shared/Loader'
-
-const PatientInfo = ({ activePatient, isLoading }) => {
+const PatientInfo = ({ activePatient }) => {
   const patient = activePatient
 
   const PATIENTDETAILS = [
@@ -86,9 +84,7 @@ const PatientInfo = ({ activePatient, isLoading }) => {
             mt: 5,
           }}
         >
-          {isLoading ? (
-            <Loader />
-          ) : (PATIENTDETAILS?.map((info, i) => (
+          {PATIENTDETAILS?.map((info, i) => (
           <Box
             sx={{
               display: 'flex',
@@ -123,9 +119,7 @@ const PatientInfo = ({ activePatient, isLoading }) => {
               </Typography>
             </Box>
           </Box>
-          ))
-        )}
-
+          ))}
         </Box>
         <Box
           sx={{

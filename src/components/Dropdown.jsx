@@ -43,6 +43,10 @@ export default function Dropdown({ data, handlePatientClick, activePatient }) {
             '&:hover': {
               cursor: 'pointer',
             },
+            '&:clicked': {
+              color: '#000000',
+              backgroundColor: '#fff',
+            },
           },
         }}
       >
