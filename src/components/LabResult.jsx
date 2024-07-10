@@ -2,7 +2,6 @@ import { Box, Card, IconButton, List, ListItem, ListItemText, Typography } from 
 
 import { ReactComponent as Download } from '../assets/Download.svg'
 
-import React from 'react'
 import Loader from '../shared/Loader'
 
 const LabResult = ({ activePatient, isLoading }) => {
@@ -49,7 +48,6 @@ const LabResult = ({ activePatient, isLoading }) => {
                 <Loader />
               ) : ( patient?.map((result, index) => (
                 <ListItem
-                  // sx={{ margin: '16px 0' }}
                   secondaryAction={
                     <IconButton edge="end" aria-label="menu">
                       <Download />
@@ -58,7 +56,6 @@ const LabResult = ({ activePatient, isLoading }) => {
                 >
                   <ListItemText
                     primary={result}
-                    // secondary="Female 18"
                   />
                 </ListItem>
               ))

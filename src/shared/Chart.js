@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Chart as ChartJS } from 'chart.js/auto';
 
 const Chart = ({ type, data, options }) => {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null);
+  const chartRef = React.useRef(null);
+  const chartInstance = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const initializeChart = () => {
       if (chartRef.current && chartInstance.current === null) {
         chartInstance.current = new ChartJS(chartRef.current, {
@@ -25,7 +25,7 @@ const Chart = ({ type, data, options }) => {
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
-        chartInstance.current = null; // Clear the reference
+        chartInstance.current = null;
       }
     };
   }, [type, data, options]);

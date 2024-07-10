@@ -3,7 +3,6 @@ import { Avatar, Box, Card, IconButton, List, ListItem, ListItemAvatar, ListItem
 import { ReactComponent as MoreHorizonIcon } from '../assets/MoreHorizonIcon.svg'
 import { ReactComponent as SearchIcon } from '../assets/SearchIcon.svg'
 
-import React from 'react'
 import Loader from '../shared/Loader';
 
 const PatientsList = ({ data, isLoading, activePatient, handlePatientClick }) => {

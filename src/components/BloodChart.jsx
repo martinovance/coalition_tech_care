@@ -1,5 +1,6 @@
 import React from 'react';
 import  Chart  from '../shared/Chart.js';
+
 import { Box, Typography } from '@mui/material';
 
 import { ReactComponent as ExpandMore } from '../assets/ExpandMore.svg'
@@ -50,11 +51,9 @@ const BloodChart = ({ activePatient }) => {
     <Box sx={{ width: { xs: '100%', md: '70%', xl: '100%' }, height: { xs: '300px', md: '90%' } }}>
       <Box
         sx={{
-          // width: '100%',
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'space-between',
-          // gap: '24px',
         }}
       >
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
@@ -62,7 +61,6 @@ const BloodChart = ({ activePatient }) => {
         </Typography>
         <Box
           sx={{
-            // width: '100%',
             display: 'flex',
             justifyContent: { xs: 'flex-start', md: 'flex-end' },
             alignItems: 'center',

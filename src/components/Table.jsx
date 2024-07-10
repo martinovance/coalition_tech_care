@@ -4,7 +4,6 @@ import { Box } from '@mui/material';
 
 export default function Table({ activePatient }) {
   const patient = activePatient?.diagnostic_list
-  console.log(patient);
   const [rows, setRows] = React.useState([]);
 
   React.useEffect(() => {
@@ -22,7 +21,7 @@ export default function Table({ activePatient }) {
   const columns = [
     { field: 'problem', headerName: 'Problem/Diagnosis', width: 200 },
     { field: 'description', headerName: 'Description', width: 300 },
-    { field: 'status', headerName: 'Status', width: 100 },
+    { field: 'status', headerName: 'Status', width: 200 },
   ];
 
   return (

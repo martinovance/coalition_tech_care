@@ -1,10 +1,10 @@
 import { Avatar, Box, Button, Card, Typography } from '@mui/material'
-import React from 'react'
 
 import CalendarToday from '../assets/CalendarToday.svg'
 import FemaleIcon from '../assets/FemaleIcon.svg'
 import PhoneIcon from '../assets/PhoneIcon.svg'
 import InsuranceIcon from '../assets/InsuranceIcon.svg'
+
 import Loader from '../shared/Loader'
 
 const PatientInfo = ({ activePatient, isLoading }) => {

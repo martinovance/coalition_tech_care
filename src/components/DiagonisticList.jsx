@@ -1,5 +1,5 @@
 import { Box, Card, Typography } from '@mui/material'
-import React from 'react'
+
 import Table from './Table';
 import Loader from '../shared/Loader';
 

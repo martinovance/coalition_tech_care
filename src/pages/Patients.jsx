@@ -9,9 +9,9 @@ import DiagnosisHistory from '../components/DiagnosisHistory'
 import PatientInfo from '../components/PatientInfo'
 import DiagonisticList from '../components/DiagonisticList'
 import LabResult from '../components/LabResult'
+import Dropdown from '../components/Dropdown'
 
 import { getPatients } from '../services/dashboardServices'
-import Dropdown from '../components/Dropdown'
 
 const Patients = () => {
   const { data, isLoading } = useQuery({

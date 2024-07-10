@@ -1,5 +1,4 @@
 import { Box, Card, Grid, Typography } from '@mui/material'
-import React from 'react'
 
 import RespiratoryRate from '../assets/images/RespiratoryRate.png'
 import Temperature from '../assets/images/Temperature.png'

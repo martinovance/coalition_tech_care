@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Card, Divider, IconButton, Typography } from '@mui/material'
-// import { MoreVertIcon } from '@mui/icons-material';
+
 import { ReactComponent as TestLogo } from '../assets/TestLogo.svg'
 import { ReactComponent as Home } from '../assets/Home.svg'
 import { ReactComponent as Group } from '../assets/Group.svg'

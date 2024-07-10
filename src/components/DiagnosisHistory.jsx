@@ -1,9 +1,9 @@
 import { Box, Card, Divider, Typography } from '@mui/material'
-import React from 'react'
-import BloodChart from './BloodChart'
 
 import { ReactComponent as ArrowUp } from '../assets/ArrowUp.svg'
 import { ReactComponent as ArrowDown } from '../assets/ArrowDown.svg'
+
+import BloodChart from './BloodChart'
 import DiagnosisCards from './DiagnosisCards'
 import Loader from '../shared/Loader'
 
